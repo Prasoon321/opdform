@@ -1,7 +1,16 @@
 import { useState } from "react";
 function Opdform() {
   const [isFormVisible, setFormVisibility] = useState(false);
+  const [patientName, setPatientName] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [address, setAddress] = useState("");
+  const [refBy, setRefBy] = useState("");
 
+  // Function to handle form submission
+  const handleSubmit = () => {
+    // For demonstration, simply display an alert
+    alert("Patient added!");
+  };
   const toggleForm = () => {
     setFormVisibility(!isFormVisible);
   };
@@ -50,46 +59,60 @@ function Opdform() {
                             placeholder="Full Name"
                             type="text"
                             className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                            name="user_name"
+                            name="patient_name"
+                            value={patientName}
+                            onChange={(e) => setPatientName(e.target.value)}
                           />
                         </div>
                       </div>
+
+                      {/* Mobile */}
                       <div>
                         <label className="text-base font-medium text-gray-900">
                           Mobile
                         </label>
                         <div className="mt-2">
                           <input
-                            placeholder="Email"
-                            type="email"
+                            placeholder="Mobile"
+                            type="text"
                             className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                            name="email"
+                            name="mobile"
+                            value={mobile}
+                            onChange={(e) => setMobile(e.target.value)}
                           />
                         </div>
                       </div>
+
+                      {/* Address */}
                       <div>
                         <label className="text-base font-medium text-gray-900">
                           Address
                         </label>
                         <div className="mt-2">
                           <input
-                            placeholder="Email"
-                            type="email"
+                            placeholder="Address"
+                            type="text"
                             className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                            name="email"
+                            name="address"
+                            value={address}
+                            onChange={(e) => setAddress(e.target.value)}
                           />
                         </div>
                       </div>
+
+                      {/* Refrence By */}
                       <div>
                         <label className="text-base font-medium text-gray-900">
                           Refrence By
                         </label>
                         <div className="mt-2">
                           <input
-                            placeholder="Email"
-                            type="email"
+                            placeholder="Refrence By"
+                            type="text"
                             className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                            name="email"
+                            name="ref_by"
+                            value={refBy}
+                            onChange={(e) => setRefBy(e.target.value)}
                           />
                         </div>
                       </div>
@@ -147,6 +170,7 @@ function Opdform() {
                         <button
                           className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
                           type="button"
+                          onClick={handleSubmit}
                         >
                           Submit Patient
                         </button>
