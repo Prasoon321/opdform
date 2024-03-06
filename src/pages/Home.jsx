@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [hospital, setHospital] = useState("");
   const navigate = useNavigate();
   const handleLogin = () => {
     // For simplicity, consider any email/password combination as valid
@@ -37,12 +38,7 @@ const Home = () => {
               />
               <label>Password</label>
             </div>
-            <div className="user-box">
-              <select className="dropdown">
-                <option value="male">Admin</option>
-                <option value="female">User</option>
-              </select>
-            </div>
+
             <a href="#" onClick={handleLogin}>
               <span></span>
               <span></span>
